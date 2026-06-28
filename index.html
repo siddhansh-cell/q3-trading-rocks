@@ -317,6 +317,67 @@
     border-top: 1px solid #E5E5E5;
   }
 
+  /* RAG evaluation */
+  .rag-filters {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .rag-filter {
+    background: #fff;
+    border: 1px solid #E5E5E5;
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .rag-filter:hover { border-color: #CCC; color: #555; }
+  .rag-filter.active { border-color: #111; color: #111; background: #F5F5F5; }
+  .rag-filter .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .rag-filter .dot.green { background: #3D9C50; }
+  .rag-filter .dot.amber { background: #D4930D; }
+  .rag-filter .dot.red { background: #C84E2C; }
+  .rag-filter .count {
+    color: #BBB;
+    font-weight: 400;
+    font-size: 11px;
+  }
+
+  .eval-row {
+    display: grid;
+    grid-template-columns: 10px 22px 1fr;
+    gap: 10px;
+    align-items: start;
+    padding: 10px 0;
+    border-top: 1px solid #F0F0F0;
+    transition: opacity 0.15s;
+  }
+  .eval-row:last-child { border-bottom: 1px solid #F0F0F0; }
+  .eval-row.hidden { display: none; }
+  .eval-row .rag-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 5px;
+  }
+  .eval-row .rag-dot.green { background: #3D9C50; }
+  .eval-row .rag-dot.amber { background: #D4930D; }
+  .eval-row .rag-dot.red { background: #C84E2C; }
+  .eval-row .num { color: #CCC; font-size: 11px; font-weight: 500; padding-top: 2px; }
+  .eval-row .text { font-size: 14px; font-weight: 400; line-height: 1.6; color: #333; }
+  .eval-row .text strong { font-weight: 600; color: #111; }
+
   /* Responsive */
   @media (max-width: 700px) {
     .container { padding: 0 16px; }
@@ -343,6 +404,7 @@
   <!-- Sticky tab navigation -->
   <nav class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('q2')">Q2 goals</button>
+    <button class="tab-btn" onclick="switchTab('eval')">Q2 evaluation</button>
     <button class="tab-btn" onclick="switchTab('rocks')">Q3 rocks</button>
     <button class="tab-btn" onclick="switchTab('q3')">Q3 goals</button>
   </nav>
@@ -444,6 +506,96 @@
         <div class="goal-row"><div class="num">02</div><div class="text">Inbound automation from <strong>12% to 20%</strong></div><div class="metric">12% &rarr; 20%</div></div>
         <div class="goal-row"><div class="num">03</div><div class="text">Maintain <strong>first-response and resolution SLAs</strong></div><div></div></div>
         <div class="goal-row"><div class="num">04</div><div class="text"><strong>NPS</strong> maintained above 78 consistently</div><div class="metric">&gt;78</div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==================== Q2 EVALUATION ==================== -->
+  <div id="tab-eval" class="tab-content">
+
+    <div class="section-intro">Q2 2026 goals evaluation. RAG status across all functional goals.</div>
+
+    <div class="rag-filters">
+      <button class="rag-filter active" onclick="filterRag('all')">All <span class="count" id="count-all"></span></button>
+      <button class="rag-filter" onclick="filterRag('green')"><span class="dot green"></span> On track <span class="count" id="count-green"></span></button>
+      <button class="rag-filter" onclick="filterRag('amber')"><span class="dot amber"></span> At risk <span class="count" id="count-amber"></span></button>
+      <button class="rag-filter" onclick="filterRag('red')"><span class="dot red"></span> Off track <span class="count" id="count-red"></span></button>
+    </div>
+
+    <!-- NC Acquisition -->
+    <div class="q2-section eval-section">
+      <h2 class="q2-heading">1. NC acquisition</h2>
+      <div class="goal-group">
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">01</div><div class="text">Deliver <strong>45k new customers</strong> in UK e-com</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">02</div><div class="text">Maintain blended <strong>CAC at &pound;22</strong> across paid and organic</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">03</div><div class="text">Scale <strong>Paid Social to 1.5x spend</strong> at current efficiency</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">04</div><div class="text">Unlock <strong>2 recurring brand-funded acquisition partnerships</strong></div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">05</div><div class="text">Launch <strong>1 new acquisition channel</strong> contributing to NC mix</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">06</div><div class="text"><strong>PM held at 14.5%</strong> of total turnover</div></div>
+      </div>
+      <div class="sub-section-title">SEO</div>
+      <div class="goal-group">
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">07</div><div class="text"><strong>Non-branded organic clicks</strong> +20% for the quarter</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">08</div><div class="text"><strong>Onboard SEO/GEO agency</strong></div></div>
+      </div>
+      <div class="sub-section-title">GEO</div>
+      <div class="goal-group">
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">09</div><div class="text"><strong>LLM Visibility Score</strong> from 2% to 2.5%</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">10</div><div class="text"><strong>LLM % Total Revenue</strong> from 1.50% to 2.0%</div></div>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="q2-section eval-section">
+      <h2 class="q2-heading">2. Pricing</h2>
+      <div class="goal-group">
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">01</div><div class="text"><strong>Pricing: +0.75%</strong> across the quarter</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">02</div><div class="text"><strong>COGs: +0.2%/month</strong> improvement</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">03</div><div class="text"><strong>25+ pricing tests/month</strong> with margin readouts</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">04</div><div class="text"><strong>Top 10 levers</strong> with margin/sales impact established</div></div>
+      </div>
+    </div>
+
+    <!-- Retention / LTV -->
+    <div class="q2-section eval-section">
+      <h2 class="q2-heading">3. Retention / LTV</h2>
+      <div class="sub-section-title">Subscriptions</div>
+      <div class="goal-group">
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">01</div><div class="text">Recurring subs revenue share <strong>+1.5pp to ~23%</strong></div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">02</div><div class="text">Reduce subscription churn by <strong>15%</strong></div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">03</div><div class="text">Deliver <strong>subscription portal 2.0</strong></div></div>
+      </div>
+      <div class="sub-section-title">1-2 repeat</div>
+      <div class="goal-group">
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">04</div><div class="text">Repeat rate for Mar/Apr/May cohorts to <strong>13%+</strong></div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">05</div><div class="text"><strong>Bifurcated tracking</strong> between Tech and Non-Tech repeat rates</div></div>
+      </div>
+      <div class="sub-section-title">Brands per customer</div>
+      <div class="goal-group">
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">06</div><div class="text">Newer cohorts BPC <strong>+20%</strong> vs baseline</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">07</div><div class="text"><strong>Weekly BPC tracking plan</strong> with data team</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">08</div><div class="text">Launch <strong>5+ BPC initiatives</strong></div></div>
+      </div>
+    </div>
+
+    <!-- International + HX -->
+    <div class="q2-section eval-section">
+      <h2 class="q2-heading">4. International + HX</h2>
+      <div class="goal-group">
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">01</div><div class="text"><strong>Germany launch:</strong> PPC + Pricing framework + CRM + CX playbook</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">02</div><div class="text"><strong>HX26:</strong> Ticket sales support with PPC + Paid Social + CRM + site placement</div></div>
+      </div>
+    </div>
+
+    <!-- CX -->
+    <div class="q2-section eval-section">
+      <h2 class="q2-heading">5. CX</h2>
+      <div class="goal-group">
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">01</div><div class="text">Solve <strong>50+ paper-cuts;</strong> reduce contact reason rate <strong>16% to 13%</strong></div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">02</div><div class="text">Inbound automation <strong>12% to 20%</strong></div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">03</div><div class="text">Maintain <strong>first-response and resolution SLAs</strong></div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">04</div><div class="text"><strong>NPS</strong> maintained above 78 consistently</div></div>
       </div>
     </div>
 
@@ -760,6 +912,34 @@ function switchTab(id) {
   document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('active');
   event.target.classList.add('active');
+  if (id === 'eval') updateCounts();
+}
+
+function filterRag(status) {
+  document.querySelectorAll('.rag-filter').forEach(b => b.classList.remove('active'));
+  event.target.closest('.rag-filter').classList.add('active');
+  document.querySelectorAll('.eval-row').forEach(row => {
+    if (status === 'all' || row.dataset.rag === status) {
+      row.classList.remove('hidden');
+    } else {
+      row.classList.add('hidden');
+    }
+  });
+  document.querySelectorAll('.eval-section').forEach(section => {
+    const visible = section.querySelectorAll('.eval-row:not(.hidden)').length;
+    section.style.display = visible ? '' : 'none';
+  });
+}
+
+function updateCounts() {
+  var all = document.querySelectorAll('.eval-row').length;
+  var g = document.querySelectorAll('.eval-row[data-rag="green"]').length;
+  var a = document.querySelectorAll('.eval-row[data-rag="amber"]').length;
+  var r = document.querySelectorAll('.eval-row[data-rag="red"]').length;
+  document.getElementById('count-all').textContent = all;
+  document.getElementById('count-green').textContent = g;
+  document.getElementById('count-amber').textContent = a;
+  document.getElementById('count-red').textContent = r;
 }
 </script>
 
