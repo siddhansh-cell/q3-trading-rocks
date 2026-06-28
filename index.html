@@ -356,7 +356,7 @@
 
   .eval-row {
     display: grid;
-    grid-template-columns: 10px 22px 1fr;
+    grid-template-columns: 10px 22px 1fr auto;
     gap: 10px;
     align-items: start;
     padding: 10px 0;
@@ -377,6 +377,7 @@
   .eval-row .num { color: #CCC; font-size: 11px; font-weight: 500; padding-top: 2px; }
   .eval-row .text { font-size: 14px; font-weight: 400; line-height: 1.6; color: #333; }
   .eval-row .text strong { font-weight: 600; color: #111; }
+  .eval-row .comment { font-size: 12px; color: #999; white-space: nowrap; padding-top: 3px; text-align: right; }
 
   /* Responsive */
   @media (max-width: 700px) {
@@ -527,22 +528,21 @@
     <div class="q2-section eval-section">
       <h2 class="q2-heading">1. NC acquisition</h2>
       <div class="goal-group">
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">01</div><div class="text">Deliver <strong>45k new customers</strong> in UK e-com</div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">02</div><div class="text">Maintain blended <strong>CAC at &pound;22</strong> across paid and organic</div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">03</div><div class="text">Scale <strong>Paid Social to 1.5x spend</strong> at current efficiency</div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">04</div><div class="text">Unlock <strong>2 recurring brand-funded acquisition partnerships</strong></div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">05</div><div class="text">Launch <strong>1 new acquisition channel</strong> contributing to NC mix</div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">06</div><div class="text"><strong>PM held at 14.5%</strong> of total turnover</div></div>
+        <div class="eval-row" data-rag="red"><div class="rag-dot red"></div><div class="num">01</div><div class="text">Deliver <strong>45k new customers</strong> in UK e-com</div><div class="comment">36k in Jun</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">02</div><div class="text">Maintain blended <strong>CAC at &pound;22</strong> across paid and organic</div><div class="comment">&pound;25-26</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">03</div><div class="text">Scale <strong>Paid Social to 1.5x spend</strong> at current efficiency</div><div class="comment">1.2x</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">04</div><div class="text">Unlock <strong>2 recurring brand-funded acquisition partnerships</strong></div><div class="comment">AI pilot</div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">05</div><div class="text"><strong>PM held at 14.5%</strong> of total turnover</div><div class="comment">13.5-13.7% in Jun</div></div>
       </div>
       <div class="sub-section-title">SEO</div>
       <div class="goal-group">
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">07</div><div class="text"><strong>Non-branded organic clicks</strong> +20% for the quarter</div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">08</div><div class="text"><strong>Onboard SEO/GEO agency</strong></div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">06</div><div class="text"><strong>Non-branded organic clicks</strong> +20% for the quarter</div><div class="comment">Baseline at 7k, flat</div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">07</div><div class="text"><strong>Onboard SEO/GEO agency</strong></div><div class="comment">Potify onboarded</div></div>
       </div>
       <div class="sub-section-title">GEO</div>
       <div class="goal-group">
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">09</div><div class="text"><strong>LLM Visibility Score</strong> from 2% to 2.5%</div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">10</div><div class="text"><strong>LLM % Total Revenue</strong> from 1.50% to 2.0%</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">08</div><div class="text"><strong>LLM Visibility Score</strong> from 2% to 2.5%</div><div class="comment">Flat at 2%</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">09</div><div class="text"><strong>LLM % Total Revenue</strong> from 1.50% to 2.0%</div><div class="comment">1.6% &rarr; 1.7%</div></div>
       </div>
     </div>
 
@@ -550,10 +550,9 @@
     <div class="q2-section eval-section">
       <h2 class="q2-heading">2. Pricing</h2>
       <div class="goal-group">
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">01</div><div class="text"><strong>Pricing: +0.75%</strong> across the quarter</div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">02</div><div class="text"><strong>COGs: +0.2%/month</strong> improvement</div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">03</div><div class="text"><strong>25+ pricing tests/month</strong> with margin readouts</div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">04</div><div class="text"><strong>Top 10 levers</strong> with margin/sales impact established</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">01</div><div class="text"><strong>Pricing: +0.75%</strong> across the quarter</div><div class="comment">Moved, TBC how much</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">02</div><div class="text"><strong>25+ pricing tests/month</strong> with margin readouts</div><div class="comment">10-15/mo</div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">03</div><div class="text"><strong>Top 10 levers</strong> with margin/sales impact established</div><div class="comment">Brands that move the needle + RRP initiative</div></div>
       </div>
     </div>
 
@@ -562,20 +561,20 @@
       <h2 class="q2-heading">3. Retention / LTV</h2>
       <div class="sub-section-title">Subscriptions</div>
       <div class="goal-group">
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">01</div><div class="text">Recurring subs revenue share <strong>+1.5pp to ~23%</strong></div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">02</div><div class="text">Reduce subscription churn by <strong>15%</strong></div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">03</div><div class="text">Deliver <strong>subscription portal 2.0</strong></div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">01</div><div class="text">Recurring subs revenue share <strong>+1.5pp to ~23%</strong></div><div class="comment">Operating at 22.5%</div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">02</div><div class="text">Reduce subscription churn by <strong>15%</strong></div><div class="comment">Reduced</div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">03</div><div class="text">Deliver <strong>subscription portal 2.0</strong></div><div class="comment">Delivered</div></div>
       </div>
       <div class="sub-section-title">1-2 repeat</div>
       <div class="goal-group">
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">04</div><div class="text">Repeat rate for Mar/Apr/May cohorts to <strong>13%+</strong></div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">05</div><div class="text"><strong>Bifurcated tracking</strong> between Tech and Non-Tech repeat rates</div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">04</div><div class="text">Repeat rate for Mar/Apr/May cohorts to <strong>13%+</strong></div><div class="comment">Back on track</div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">05</div><div class="text"><strong>Bifurcated tracking</strong> between Tech and Non-Tech repeat rates</div><div class="comment">Completed</div></div>
       </div>
       <div class="sub-section-title">Brands per customer</div>
       <div class="goal-group">
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">06</div><div class="text">Newer cohorts BPC <strong>+20%</strong> vs baseline</div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">07</div><div class="text"><strong>Weekly BPC tracking plan</strong> with data team</div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">08</div><div class="text">Launch <strong>5+ BPC initiatives</strong></div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">06</div><div class="text">Newer cohorts BPC <strong>+20%</strong> vs baseline</div><div class="comment">TBC - checking data</div></div>
+        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">07</div><div class="text"><strong>Weekly BPC tracking plan</strong> with data team</div><div class="comment">Discovery as proxy metric</div></div>
+        <div class="eval-row" data-rag="red"><div class="rag-dot red"></div><div class="num">08</div><div class="text">Launch <strong>5+ BPC initiatives</strong></div><div class="comment">No major initiative launched</div></div>
       </div>
     </div>
 
@@ -583,8 +582,8 @@
     <div class="q2-section eval-section">
       <h2 class="q2-heading">4. International + HX</h2>
       <div class="goal-group">
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">01</div><div class="text"><strong>Germany launch:</strong> PPC + Pricing framework + CRM + CX playbook</div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">02</div><div class="text"><strong>HX26:</strong> Ticket sales support with PPC + Paid Social + CRM + site placement</div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">01</div><div class="text"><strong>Germany launch:</strong> PPC + Pricing framework + CRM + CX playbook</div><div class="comment"></div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">02</div><div class="text"><strong>HX26:</strong> Ticket sales support with PPC + Paid Social + CRM + site placement</div><div class="comment"></div></div>
       </div>
     </div>
 
@@ -592,10 +591,10 @@
     <div class="q2-section eval-section">
       <h2 class="q2-heading">5. CX</h2>
       <div class="goal-group">
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">01</div><div class="text">Solve <strong>50+ paper-cuts;</strong> reduce contact reason rate <strong>16% to 13%</strong></div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">02</div><div class="text">Inbound automation <strong>12% to 20%</strong></div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">03</div><div class="text">Maintain <strong>first-response and resolution SLAs</strong></div></div>
-        <div class="eval-row" data-rag="amber"><div class="rag-dot amber"></div><div class="num">04</div><div class="text"><strong>NPS</strong> maintained above 78 consistently</div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">01</div><div class="text">Solve <strong>50+ paper-cuts;</strong> reduce contact reason rate <strong>16% to 13%</strong></div><div class="comment"></div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">02</div><div class="text">Inbound automation <strong>12% to 20%</strong></div><div class="comment"></div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">03</div><div class="text">Maintain <strong>first-response and resolution SLAs</strong></div><div class="comment"></div></div>
+        <div class="eval-row" data-rag="green"><div class="rag-dot green"></div><div class="num">04</div><div class="text"><strong>NPS</strong> maintained above 78 consistently</div><div class="comment"></div></div>
       </div>
     </div>
 
