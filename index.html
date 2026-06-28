@@ -232,13 +232,14 @@
     font-weight: 500;
   }
 
-  .rock-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+  .rock-body {
     padding-top: 16px;
     border-top: 1px solid #F0F0F0;
   }
+  .rock-field {
+    margin-bottom: 16px;
+  }
+  .rock-field:last-child { margin-bottom: 0; }
 
   .field-label {
     color: #AAA;
@@ -252,6 +253,31 @@
     color: #555;
     font-size: 13px;
     line-height: 1.55;
+  }
+  .field-value ul {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 0;
+  }
+  .field-value ul li {
+    padding: 3px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+  .field-value ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #CCC;
+  }
+  .rock-fields-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
 
   /* Empty state */
@@ -277,7 +303,7 @@
   @media (max-width: 700px) {
     .container { padding: 0 16px; }
     .header h1 { font-size: 28px; }
-    .rock-grid { grid-template-columns: 1fr; }
+    .rock-fields-row { grid-template-columns: 1fr; }
     .rock-header { flex-wrap: wrap; }
     .rock-owner { margin-left: 38px; }
     .goal-row { grid-template-columns: 18px 1fr; }
@@ -421,12 +447,17 @@
       <div class="rock-header">
         <span class="rock-number">01</span>
         <span class="rock-title">Measurement layer</span>
-        <span class="rock-owner">Data team</span>
+        <span class="rock-owner">Siddhansh + Jay</span>
       </div>
-      <div class="rock-grid">
-        <div><div class="field-label">Description</div><div class="field-value">Build the unified measurement layer across NCs, ECs, and margin. Fully automated with live updates - actions flow from data to decisions without manual pulls.</div></div>
-        <div><div class="field-label">Metric</div><div class="field-value">NC attribution accuracy; margin decomposition (mix, cost, price, discounts); EC retention metrics live</div></div>
-        <div><div class="field-label">Definition of done</div><div class="field-value">All three layers (NC, EC, margin) live in Snowflake with automated daily refresh. No manual data pulls needed to run the weekly trade meeting.</div></div>
+      <div class="rock-body">
+        <div class="rock-field">
+          <div class="field-label">Description</div>
+          <div class="field-value">Build unified measurement layers across NC, EC, brand movements, and margin - metrics that capture if the business is truly improving. Fully automated with live updates - actions flowing from data to decisions without manual pulls. Diagnostic layer for growth trading.</div>
+        </div>
+        <div class="rock-field">
+          <div class="field-label">Definition of done</div>
+          <div class="field-value">All four layers (NC, EC, brand, margin) live in Snowflake with automated daily refresh.</div>
+        </div>
       </div>
     </div>
 
@@ -437,10 +468,34 @@
         <span class="rock-title">NC spend funnel</span>
         <span class="rock-owner">Leo</span>
       </div>
-      <div class="rock-grid">
-        <div><div class="field-label">Description</div><div class="field-value">Performance marketing spend funnelled efficiently into new customers. Scale through LTV bidding rollout, NC-only bidding, customer segmentation, and increased test velocity with Mai.</div></div>
-        <div><div class="field-label">Metric</div><div class="field-value">New customers (41k to 50k ramp); CAC; NCPP; PM as % of turnover</div></div>
-        <div><div class="field-label">Definition of done</div><div class="field-value">LTV bidding rolled out across campaigns. NC-only bidding tested and scaled. Mai test velocity at target cadence. NC monthly ramp on track.</div></div>
+      <div class="rock-body">
+        <div class="rock-field">
+          <div class="field-label">Description</div>
+          <div class="field-value">Funnel performance marketing spend into acquiring new customers. Multiple approaches available:
+            <ul>
+              <li>LTV bidding</li>
+              <li>NC-only bidding</li>
+              <li>Customer segmentation</li>
+              <li>Testing velocity with Mai</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rock-fields-row">
+          <div class="rock-field">
+            <div class="field-label">Metric</div>
+            <div class="field-value">New customers: 35k current, ramp to 45k by September. <strong>NCPP</strong> is the headline metric.</div>
+          </div>
+          <div class="rock-field">
+            <div class="field-label">Definition of done</div>
+            <div class="field-value">
+              <ul>
+                <li>LTV bidding rolled out across campaigns</li>
+                <li>NC-only bidding tested and scaled if successful</li>
+                <li>Monthly ramp on track</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -451,10 +506,34 @@
         <span class="rock-title">Search + site discoverability</span>
         <span class="rock-owner">Arman</span>
       </div>
-      <div class="rock-grid">
-        <div><div class="field-label">Description</div><div class="field-value">Search as the engine of conversion on product. Improve site navigation, filtration, and product discovery to drive CRO.</div></div>
-        <div><div class="field-label">Metric</div><div class="field-value">Search conversion rate; filtration usage; product discovery metrics (TBC)</div></div>
-        <div><div class="field-label">Definition of done</div><div class="field-value">Search reranking live (fidelity vs commercial balance defined). Navigation filtration shipped. Measurable CRO uplift on search-driven sessions.</div></div>
+      <div class="rock-body">
+        <div class="rock-field">
+          <div class="field-label">Description</div>
+          <div class="field-value">
+            <ul>
+              <li>Search as an engine of conversion</li>
+              <li>Search results are accurate</li>
+              <li>Improve site navigation and filtration</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rock-fields-row">
+          <div class="rock-field">
+            <div class="field-label">Metric</div>
+            <div class="field-value">Improvement in search conversion rate. Usage of filtration on website.</div>
+          </div>
+          <div class="rock-field">
+            <div class="field-label">Definition of done</div>
+            <div class="field-value">
+              <ul>
+                <li>Search reranking live</li>
+                <li>Fidelity, discovery, and commercial balance maintained</li>
+                <li>Navigation filter shipped (e.g. vegan)</li>
+                <li>Measurable CRO uplift on search-driven sessions</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -465,10 +544,21 @@
         <span class="rock-title">Store credit + loyalty foundations</span>
         <span class="rock-owner">Holly</span>
       </div>
-      <div class="rock-grid">
-        <div><div class="field-label">Description</div><div class="field-value">Launch store credit to drive 1-to-2 reactivation. Set the foundations for a broader loyalty programme that increases repeat rate and LTV.</div></div>
-        <div><div class="field-label">Metric</div><div class="field-value">1-to-2 repeat rate; store credit redemption rate; reactivation rate</div></div>
-        <div><div class="field-label">Definition of done</div><div class="field-value">Store credit mechanism live and tested. Cohort data shows measurable lift in 1-to-2 repeat rate. Loyalty programme roadmap defined for Q4 build.</div></div>
+      <div class="rock-body">
+        <div class="rock-field">
+          <div class="field-label">Description</div>
+          <div class="field-value">Launch store credit to drive 1-to-2 reactivation. Set the foundations for a broader loyalty programme that increases repeat rate and LTV.</div>
+        </div>
+        <div class="rock-fields-row">
+          <div class="rock-field">
+            <div class="field-label">Metric</div>
+            <div class="field-value">1-to-2 repeat rate. Store credit redemption rate.</div>
+          </div>
+          <div class="rock-field">
+            <div class="field-label">Definition of done</div>
+            <div class="field-value">Store credit mechanism live and tested with 3 use cases. Loyalty programme roadmap defined for Q4.</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -479,10 +569,21 @@
         <span class="rock-title">Pricing automation</span>
         <span class="rock-owner">Anton</span>
       </div>
-      <div class="rock-grid">
-        <div><div class="field-label">Description</div><div class="field-value">Move from manual pricing decisions to an automated engine. Price scraper at full coverage, integrated into Snowflake, with A/B testing framework driving continuous margin gains. EN-UK/.com price convergence within 2-2.5pp.</div></div>
-        <div><div class="field-label">Metric</div><div class="field-value">Gross margin %; pricing gains %; en-uk/.com gap (pp); pricing tests per month</div></div>
-        <div><div class="field-label">Definition of done</div><div class="field-value">Scraper at full SKU coverage in Snowflake. EN-UK/.com gap within 2-2.5pp. 25+ pricing tests/month running with automated margin readouts.</div></div>
+      <div class="rock-body">
+        <div class="rock-field">
+          <div class="field-label">Description</div>
+          <div class="field-value">Move from manual pricing to automated engine. Price scraper integrated into Snowflake with clear metrics for lowest/cheapest price.</div>
+        </div>
+        <div class="rock-fields-row">
+          <div class="rock-field">
+            <div class="field-label">Metric</div>
+            <div class="field-value">Pricing gain %. EN-UK/.com price convergence within 2-2.5%.</div>
+          </div>
+          <div class="rock-field">
+            <div class="field-label">Definition of done</div>
+            <div class="field-value">Scraper covers full scope with 90%+ adoption. Target: end of July.</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -490,13 +591,24 @@
     <div class="card">
       <div class="rock-header">
         <span class="rock-number">06</span>
-        <span class="rock-title">CW inbound automation</span>
+        <span class="rock-title">CW inbound calls</span>
         <span class="rock-owner">Firas</span>
       </div>
-      <div class="rock-grid">
-        <div><div class="field-label">Description</div><div class="field-value">Pilot automated inbound call handling in Customer Wellbeing. Reduce manual call volume while maintaining quality and NPS.</div></div>
-        <div><div class="field-label">Metric</div><div class="field-value">Inbound automation rate (12% to 20%+); NPS maintained above 78; issue rate (% orders)</div></div>
-        <div><div class="field-label">Definition of done</div><div class="field-value">Inbound call automation pilot live and validated. Automation rate at 20%+. No degradation in NPS or resolution SLAs.</div></div>
+      <div class="rock-body">
+        <div class="rock-field">
+          <div class="field-label">Description</div>
+          <div class="field-value">Pilot inbound call handling in Customer Wellbeing. Understand if it helps deliver better customer experience.</div>
+        </div>
+        <div class="rock-fields-row">
+          <div class="rock-field">
+            <div class="field-label">Metric</div>
+            <div class="field-value">Inbound call CSAT 4.8+. 10% adoption.</div>
+          </div>
+          <div class="rock-field">
+            <div class="field-label">Definition of done</div>
+            <div class="field-value">Inbound calls piloted. Scaled to ~10% of total tickets with focus on VIPs.</div>
+          </div>
+        </div>
       </div>
     </div>
 
