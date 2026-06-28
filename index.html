@@ -7,122 +7,225 @@
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    background: #000;
-    color: #fff;
+    background: #FAFAFA;
+    color: #1A1A1A;
     font-family: 'Helvetica Neue', -apple-system, Arial, sans-serif;
-    font-weight: 300;
-    line-height: 1.4;
-    padding: 60px 0 120px 0;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0 0 100px 0;
   }
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 32px; }
 
   /* Header */
   .header {
+    padding: 56px 0 28px 0;
     margin-bottom: 0;
-    padding-bottom: 32px;
-    border-bottom: 1px solid #2A2A2A;
   }
-  .header .meta { color: #5C5C5C; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 12px; }
-  .header h1 { font-size: 48px; font-weight: 200; letter-spacing: -1px; margin-bottom: 8px; }
-  .header .sub { color: #888; font-size: 14px; }
+  .header .meta { color: #999; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+  .header h1 { font-size: 36px; font-weight: 600; letter-spacing: -0.5px; margin-bottom: 4px; color: #111; }
+  .header .sub { color: #888; font-size: 14px; font-weight: 400; }
 
-  /* Tab navigation */
+  /* Sticky tab navigation */
   .tab-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
-    gap: 4px;
-    margin: 0 0 56px 0;
-    border-bottom: 1px solid #2A2A2A;
-    overflow-x: auto;
+    gap: 0;
+    background: #FAFAFA;
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 48px;
+    padding-top: 4px;
   }
   .tab-btn {
     background: transparent;
     border: none;
-    color: #888;
-    padding: 14px 24px;
+    color: #999;
+    padding: 12px 20px;
     font-family: inherit;
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
     cursor: pointer;
     border-bottom: 2px solid transparent;
     margin-bottom: -1px;
     transition: color 0.15s, border-color 0.15s;
     white-space: nowrap;
   }
-  .tab-btn:hover { color: #C8C8C8; }
+  .tab-btn:hover { color: #555; }
   .tab-btn.active {
-    color: #fff;
-    border-bottom-color: #fff;
+    color: #111;
+    border-bottom-color: #111;
   }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
-  /* Sub-tabs (within Q2) */
-  .sub-nav {
-    display: flex;
-    gap: 4px;
-    border-bottom: 1px solid #2A2A2A;
-    margin-bottom: 40px;
-    overflow-x: auto;
+  /* Section headings (Q2 flow) */
+  .q2-section {
+    margin-bottom: 48px;
   }
-  .sub-btn {
-    background: transparent;
-    border: none;
-    color: #5C5C5C;
-    padding: 10px 18px;
-    font-family: inherit;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    transition: color 0.15s, border-color 0.15s;
+  .q2-heading {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 6px;
+    padding-top: 40px;
+  }
+  .q2-section:first-child .q2-heading { padding-top: 0; }
+  .q2-lead {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .q2-lead strong { color: #555; font-weight: 500; }
+
+  /* Divider between Q2 sections */
+  .q2-section + .q2-section {
+    border-top: 1px solid #E5E5E5;
+  }
+
+  /* Sub-section titles within Q2 */
+  .sub-section-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 28px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .badge {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 100px;
+  }
+  .badge-green { background: #E8F5E9; color: #2E7D32; }
+  .badge-amber { background: #FFF8E1; color: #E65100; }
+  .badge-blue { background: #E3F2FD; color: #1565C0; }
+
+  /* Goal rows */
+  .goal-group { margin-bottom: 24px; }
+  .group-header {
+    color: #999;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .goal-row {
+    display: grid;
+    grid-template-columns: 22px 1fr auto;
+    gap: 10px;
+    align-items: start;
+    padding: 10px 0;
+    border-top: 1px solid #F0F0F0;
+  }
+  .goal-row:last-child { border-bottom: 1px solid #F0F0F0; }
+  .goal-row .num { color: #CCC; font-size: 11px; font-weight: 500; padding-top: 2px; }
+  .goal-row .text { font-size: 14px; font-weight: 400; line-height: 1.6; color: #333; }
+  .goal-row .text strong { font-weight: 600; color: #111; }
+  .goal-row .metric {
+    display: inline-flex;
+    align-items: center;
+    background: #F0F7F0;
+    color: #2E7D32;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.2px;
     white-space: nowrap;
   }
-  .sub-btn:hover { color: #888; }
-  .sub-btn.active {
-    color: #C8C8C8;
-    border-bottom-color: #C8C8C8;
+
+  /* Sub-goals (indented) */
+  .goal-row.indent {
+    padding-left: 32px;
+    grid-template-columns: 6px 1fr;
+    gap: 10px;
+    border-top-color: transparent;
   }
-  .sub-content { display: none; }
-  .sub-content.active { display: block; }
+  .goal-row.indent + .goal-row:not(.indent) { border-top: 1px solid #F0F0F0; }
+  .goal-row.indent .bullet {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #CCC;
+    margin-top: 8px;
+  }
 
-  /* Sections */
-  .section-mark { color: #888; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 16px; }
-  .section-title { font-size: 32px; font-weight: 200; letter-spacing: -0.5px; margin-bottom: 12px; }
-  .section-sub { color: #888; font-size: 14px; margin-bottom: 40px; max-width: 800px; }
+  /* Section intro */
+  .section-mark { color: #999; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 12px; }
+  .section-title { font-size: 28px; font-weight: 600; letter-spacing: -0.3px; margin-bottom: 8px; color: #111; }
+  .section-intro {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    max-width: 700px;
+  }
+  .section-intro strong { color: #555; font-weight: 500; }
 
-  /* Cards */
-  .card {
-    background: #1A1A1A;
-    border: 1px solid #2A2A2A;
-    padding: 24px;
+  /* Callout */
+  .callout {
+    background: #fff;
+    border: 1px solid #E5E5E5;
+    border-left: 3px solid #999;
     border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 36px;
+  }
+  .callout-label {
+    color: #999;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .callout p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Cards (rocks) */
+  .card {
+    background: #fff;
+    border: 1px solid #E5E5E5;
+    padding: 24px;
+    border-radius: 6px;
     margin-bottom: 12px;
   }
 
-  /* Rock cards */
   .rock-header {
     display: flex;
     align-items: baseline;
-    gap: 16px;
+    gap: 14px;
     margin-bottom: 16px;
   }
   .rock-number {
-    font-size: 36px;
-    font-weight: 200;
-    color: #5C5C5C;
-    min-width: 28px;
+    font-size: 28px;
+    font-weight: 300;
+    color: #CCC;
+    min-width: 24px;
     letter-spacing: -1px;
   }
   .rock-title {
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 17px;
+    font-weight: 600;
+    color: #111;
   }
   .rock-owner {
     margin-left: auto;
-    color: #888;
+    color: #999;
     font-size: 11px;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -134,162 +237,50 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     padding-top: 16px;
-    border-top: 1px solid #2A2A2A;
+    border-top: 1px solid #F0F0F0;
   }
 
   .field-label {
-    color: #5C5C5C;
+    color: #AAA;
     font-size: 9px;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 8px;
+    font-weight: 600;
+    margin-bottom: 6px;
   }
-
   .field-value {
-    color: #C8C8C8;
+    color: #555;
     font-size: 13px;
     line-height: 1.55;
   }
-
-  /* Callout */
-  .callout {
-    background: #1A1A1A;
-    border: 1px solid #2A2A2A;
-    border-left: 3px solid #888;
-    border-radius: 4px;
-    padding: 24px 28px;
-    margin-bottom: 40px;
-  }
-  .callout-label {
-    color: #888;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  .callout p {
-    color: #C8C8C8;
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  /* Q2 goal items */
-  .goal-group { margin-bottom: 40px; }
-  .group-header {
-    color: #888;
-    font-size: 10px;
-    letter-spacing: 2px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-
-  .goal-row {
-    display: grid;
-    grid-template-columns: 24px 1fr auto;
-    gap: 12px;
-    align-items: start;
-    padding: 14px 0;
-    border-top: 1px solid #2A2A2A;
-  }
-  .goal-row:last-child { border-bottom: 1px solid #2A2A2A; }
-  .goal-row .num { color: #5C5C5C; font-size: 11px; padding-top: 2px; }
-  .goal-row .text { font-size: 14px; font-weight: 400; line-height: 1.6; }
-  .goal-row .text strong { font-weight: 500; }
-  .goal-row .metric {
-    display: inline-flex;
-    align-items: center;
-    background: rgba(61,156,80,0.1);
-    color: #3D9C50;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 100px;
-    border: 1px solid rgba(61,156,80,0.2);
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-  }
-
-  /* Sub-goals (indented) */
-  .goal-row.indent {
-    padding-left: 36px;
-    grid-template-columns: 8px 1fr;
-    gap: 10px;
-  }
-  .goal-row.indent .bullet {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #5C5C5C;
-    margin-top: 7px;
-  }
-
-  /* Sub-section titles within Q2 */
-  .sub-section-title {
-    font-size: 18px;
-    font-weight: 300;
-    margin-top: 40px;
-    margin-bottom: 8px;
-    padding-top: 32px;
-    border-top: 1px solid #2A2A2A;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .sub-section-title:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-
-  .badge {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 100px;
-  }
-  .badge-green { background: rgba(61,156,80,0.12); color: #3D9C50; border: 1px solid rgba(61,156,80,0.25); }
-  .badge-amber { background: rgba(200,155,44,0.12); color: #C89B2C; border: 1px solid rgba(200,155,44,0.25); }
-  .badge-blue { background: rgba(80,130,200,0.12); color: #5C8FCC; border: 1px solid rgba(80,130,200,0.25); }
-
-  /* Headline intro */
-  .section-intro {
-    color: #888;
-    font-size: 14px;
-    margin-bottom: 32px;
-    line-height: 1.6;
-    max-width: 700px;
-  }
-  .section-intro strong { color: #C8C8C8; font-weight: 500; }
 
   /* Empty state */
   .empty-state {
     text-align: center;
     padding: 80px 40px;
-    color: #5C5C5C;
+    color: #BBB;
   }
-  .empty-state .icon { font-size: 48px; margin-bottom: 16px; opacity: 0.3; }
+  .empty-state .icon { font-size: 40px; margin-bottom: 12px; opacity: 0.4; }
   .empty-state p { font-size: 14px; line-height: 1.7; }
 
   /* Footer */
   .footer {
-    color: #5C5C5C;
+    color: #CCC;
     font-size: 11px;
     text-align: center;
-    margin-top: 80px;
-    padding-top: 32px;
-    border-top: 1px solid #2A2A2A;
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid #E5E5E5;
   }
 
   /* Responsive */
   @media (max-width: 700px) {
-    .container { padding: 0 20px; }
-    body { padding: 32px 0 60px 0; }
-    .header h1 { font-size: 32px; }
+    .container { padding: 0 16px; }
+    .header h1 { font-size: 28px; }
     .rock-grid { grid-template-columns: 1fr; }
     .rock-header { flex-wrap: wrap; }
-    .rock-owner { margin-left: 44px; }
-    .goal-row { grid-template-columns: 20px 1fr; }
+    .rock-owner { margin-left: 38px; }
+    .goal-row { grid-template-columns: 18px 1fr; }
     .goal-row .metric { display: none; }
   }
 </style>
@@ -300,12 +291,12 @@
 
   <!-- Header -->
   <div class="header">
-    <div class="meta">Healf &middot; Trading function</div>
+    <div class="meta">Healf &middot; Trading</div>
     <h1>Goals &amp; rocks</h1>
     <div class="sub">Siddhansh Arora &middot; Head of Trading</div>
   </div>
 
-  <!-- Tab navigation -->
+  <!-- Sticky tab navigation -->
   <nav class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('q2')">Q2 goals</button>
     <button class="tab-btn" onclick="switchTab('rocks')">Q3 rocks</button>
@@ -315,23 +306,16 @@
   <!-- ==================== Q2 GOALS ==================== -->
   <div id="tab-q2" class="tab-content active">
 
-    <div class="section-mark">Q2 2026 &middot; Functional goals</div>
-    <div class="section-intro">Goals across NC acquisition, pricing, retention/LTV, international, and CX.<br>Revenue and margin targets synced with the Q2 Targets Methodology note. Updated 29 March 2026.</div>
+    <div class="section-intro">Q2 2026 functional goals. Revenue and margin targets synced with the Q2 Targets Methodology note.</div>
 
-    <nav class="sub-nav">
-      <button class="sub-btn active" onclick="switchSub('nc')">NC acquisition</button>
-      <button class="sub-btn" onclick="switchSub('pricing')">Pricing</button>
-      <button class="sub-btn" onclick="switchSub('retention')">Retention / LTV</button>
-      <button class="sub-btn" onclick="switchSub('intl')">International + HX</button>
-      <button class="sub-btn" onclick="switchSub('cx')">CX</button>
-    </nav>
-
-    <!-- NC Acquisition -->
-    <div id="sub-nc" class="sub-content active">
+    <!-- 1. NC Acquisition -->
+    <div class="q2-section">
+      <h2 class="q2-heading">1. NC acquisition</h2>
+      <div class="q2-lead">Deliver 45k new customers in UK e-com while scaling paid channels efficiently.</div>
       <div class="goal-group">
         <div class="group-header">Core targets</div>
         <div class="goal-row"><div class="num">01</div><div class="text">Deliver <strong>45k new customers</strong> in UK e-com</div><div class="metric">45k</div></div>
-        <div class="goal-row"><div class="num">02</div><div class="text">Maintain blended <strong>CAC at &pound;22</strong> across paid and organic channels, with clear sub-targets for Non-Tech nCAC and Tech nCAC</div><div class="metric">&pound;22</div></div>
+        <div class="goal-row"><div class="num">02</div><div class="text">Maintain blended <strong>CAC at &pound;22</strong> across paid and organic, with sub-targets for Non-Tech nCAC and Tech nCAC</div><div class="metric">&pound;22</div></div>
         <div class="goal-row"><div class="num">03</div><div class="text">Scale <strong>Paid Social to 1.5x spend</strong> at current efficiency (vs Q1 average)</div><div class="metric">1.5x</div></div>
         <div class="goal-row"><div class="num">04</div><div class="text">Unlock <strong>2 recurring brand-funded acquisition partnerships</strong> (e.g. AI pilot, Paid Social funding)</div><div class="metric">2</div></div>
         <div class="goal-row"><div class="num">05</div><div class="text">Launch <strong>1 new acquisition channel</strong> contributing to NC mix (e.g. AI pilot or Snap)</div><div class="metric">1</div></div>
@@ -340,46 +324,47 @@
 
       <div class="sub-section-title">SEO <span class="badge badge-blue">Organic</span></div>
       <div class="goal-group">
-        <div class="goal-row"><div class="num">01</div><div class="text">Primary metric: <strong>non-branded organic clicks</strong>, currently at 7.8k/week, target +20% for the quarter</div><div class="metric">+20%</div></div>
+        <div class="goal-row"><div class="num">01</div><div class="text">Primary metric: <strong>non-branded organic clicks</strong>, currently 7.8k/week, target +20% for the quarter</div><div class="metric">+20%</div></div>
         <div class="goal-row"><div class="num">02</div><div class="text"><strong>Onboard SEO/GEO agency</strong></div><div></div></div>
       </div>
 
       <div class="sub-section-title">GEO <span class="badge badge-blue">AI / LLM</span></div>
       <div class="goal-group">
-        <div class="goal-row"><div class="num">01</div><div class="text"><strong>LLM Visibility Score:</strong> improve by 25%, from 2% to 2.5% average (across 100 key prompts)</div><div class="metric">2% &rarr; 2.5%</div></div>
+        <div class="goal-row"><div class="num">01</div><div class="text"><strong>LLM Visibility Score:</strong> improve by 25%, from 2% to 2.5% (across 100 key prompts)</div><div class="metric">2% &rarr; 2.5%</div></div>
         <div class="goal-row"><div class="num">02</div><div class="text"><strong>LLM % Total Revenue:</strong> move from 1.50% to 2.0%</div><div class="metric">1.5% &rarr; 2%</div></div>
         <div class="goal-row"><div class="num">03</div><div class="text"><strong>Umair</strong> (full-time hire) starts in ~1 month to lead SEO/GEO execution</div><div></div></div>
-        <div class="goal-row"><div class="num">04</div><div class="text">GEO targets are proposed starting points. Can be refined based on progress by Umair and feedback from the onboarded agency</div><div></div></div>
+        <div class="goal-row"><div class="num">04</div><div class="text">GEO targets are starting points; refine with Umair and the agency</div><div></div></div>
       </div>
     </div>
 
-    <!-- Pricing -->
-    <div id="sub-pricing" class="sub-content">
-      <div class="section-intro">Deliver <strong>+1pp margin improvement</strong> through pricing actions and promo tightening.</div>
+    <!-- 2. Pricing -->
+    <div class="q2-section">
+      <h2 class="q2-heading">2. Pricing</h2>
+      <div class="q2-lead">Deliver <strong>+1pp margin improvement</strong> through pricing actions and promo tightening.</div>
       <div class="goal-group">
-        <div class="group-header">Targets</div>
         <div class="goal-row"><div class="num">01</div><div class="text"><strong>Pricing: +0.75%</strong> across the quarter (+1pp Apr, +1pp May, -0.25pp Jun for summer sale)</div><div class="metric">+0.75%</div></div>
-        <div class="goal-row"><div class="num">02</div><div class="text"><strong>COGs: +0.2%/month</strong> improvement (to be validated with Conor); does not factor in any major cost increases</div><div class="metric">+0.2%/mo</div></div>
-        <div class="goal-row"><div class="num">03</div><div class="text">Establish pricing experimentation cadence: <strong>25+ tests shipped per month</strong> with clear margin readouts (including en-uk with spend as a variable)</div><div class="metric">25+/mo</div></div>
-        <div class="goal-row"><div class="num">04</div><div class="text">Strengthen visibility on sales vs margin trade-offs: <strong>top 10 levers</strong> with margin/sales impact established</div><div class="metric">Top 10</div></div>
+        <div class="goal-row"><div class="num">02</div><div class="text"><strong>COGs: +0.2%/month</strong> improvement (validate with Conor); excludes major cost increases</div><div class="metric">+0.2%/mo</div></div>
+        <div class="goal-row"><div class="num">03</div><div class="text"><strong>25+ pricing tests/month</strong> with clear margin readouts (including en-uk with spend as a variable)</div><div class="metric">25+/mo</div></div>
+        <div class="goal-row"><div class="num">04</div><div class="text"><strong>Top 10 levers</strong> with margin/sales impact established</div><div class="metric">Top 10</div></div>
       </div>
     </div>
 
-    <!-- Retention / LTV -->
-    <div id="sub-retention" class="sub-content">
+    <!-- 3. Retention / LTV -->
+    <div class="q2-section">
+      <h2 class="q2-heading">3. Retention / LTV</h2>
 
-      <div class="sub-section-title" style="margin-top:0; padding-top:0; border-top:none;">Subscriptions <span class="badge badge-green">Recurring</span></div>
+      <div class="sub-section-title">Subscriptions <span class="badge badge-green">Recurring</span></div>
       <div class="goal-group">
         <div class="goal-row"><div class="num">01</div><div class="text">Grow recurring subs revenue faster than overall sales; gain share by <strong>1.5pp to ~23%</strong> excluding Tech sales</div><div class="metric">~23%</div></div>
-        <div class="goal-row"><div class="num">02</div><div class="text">Reduce subscription churn by <strong>15%</strong> through deeper cancellation insight and journey interventions</div><div class="metric">-15%</div></div>
-        <div class="goal-row"><div class="num">03</div><div class="text">Deliver <strong>subscription portal 2.0</strong> alongside Product (consolidation UX, match-price retention, reminder flow improvements)</div><div></div></div>
+        <div class="goal-row"><div class="num">02</div><div class="text">Reduce subscription churn by <strong>15%</strong></div><div class="metric">-15%</div></div>
+        <div class="goal-row"><div class="num">03</div><div class="text">Deliver <strong>subscription portal 2.0</strong> alongside Product (consolidation UX, match-price retention, reminder flows)</div><div></div></div>
       </div>
 
       <div class="sub-section-title">1-2 repeat <span class="badge badge-amber">Recovery</span></div>
       <div class="goal-group">
-        <div class="goal-row"><div class="num">01</div><div class="text">Improve repeat rate for Mar/Apr/May cohorts to <strong>13%+</strong> (historically 15%, declined to ~10%)</div><div class="metric">13%+</div></div>
+        <div class="goal-row"><div class="num">01</div><div class="text">Repeat rate for Mar/Apr/May cohorts to <strong>13%+</strong> (historically 15%, declined to ~10%)</div><div class="metric">13%+</div></div>
         <div class="goal-row"><div class="num">02</div><div class="text">3 initiatives to test and iterate on:</div><div></div></div>
-        <div class="goal-row indent"><div class="bullet"></div><div class="text"><strong>CRM:</strong> Post-purchase flow improvements, optimising timing of second order nudge</div></div>
+        <div class="goal-row indent"><div class="bullet"></div><div class="text"><strong>CRM:</strong> Post-purchase flow, optimising second order nudge timing</div></div>
         <div class="goal-row indent"><div class="bullet"></div><div class="text"><strong>Direct mail:</strong> Targeted use to drive second purchase</div></div>
         <div class="goal-row indent"><div class="bullet"></div><div class="text"><strong>Paid Social:</strong> Retargeting cohorts to drive repeat conversion</div></div>
         <div class="goal-row"><div class="num">03</div><div class="text">Establish <strong>bifurcated tracking</strong> between Tech and Non-Tech repeat rates</div><div></div></div>
@@ -387,7 +372,7 @@
 
       <div class="sub-section-title">Brands per customer <span class="badge badge-green">Growth</span></div>
       <div class="goal-group">
-        <div class="goal-row"><div class="num">01</div><div class="text">Improve newer cohorts (Jan '26 onwards) BPC by <strong>20%+</strong> vs baseline</div><div class="metric">+20%</div></div>
+        <div class="goal-row"><div class="num">01</div><div class="text">Newer cohorts (Jan '26 onwards) BPC <strong>+20%</strong> vs baseline</div><div class="metric">+20%</div></div>
         <div class="goal-row"><div class="num">02</div><div class="text">Align on a <strong>weekly BPC tracking plan</strong> with the data team</div><div></div></div>
         <div class="goal-row"><div class="num">03</div><div class="text">Launch <strong>5+ initiatives</strong> to improve BPC:</div><div class="metric">5+</div></div>
         <div class="goal-row indent"><div class="bullet"></div><div class="text"><strong>CRM:</strong> Curated flows + use of goals from WI</div></div>
@@ -398,23 +383,23 @@
       </div>
     </div>
 
-    <!-- International + HX -->
-    <div id="sub-intl" class="sub-content">
+    <!-- 4. International + HX -->
+    <div class="q2-section">
+      <h2 class="q2-heading">4. International + HX</h2>
       <div class="goal-group">
-        <div class="group-header">Targets</div>
         <div class="goal-row"><div class="num">01</div><div class="text"><strong>Germany launch:</strong> PPC + Pricing framework + CRM + CX playbook</div><div></div></div>
         <div class="goal-row"><div class="num">02</div><div class="text"><strong>HX26:</strong> Ticket sales support to Brand with PPC + Paid Social + CRM + site placement</div><div></div></div>
       </div>
     </div>
 
-    <!-- CX -->
-    <div id="sub-cx" class="sub-content">
+    <!-- 5. CX -->
+    <div class="q2-section">
+      <h2 class="q2-heading">5. CX</h2>
       <div class="goal-group">
-        <div class="group-header">Targets</div>
-        <div class="goal-row"><div class="num">01</div><div class="text">Solve <strong>50+ paper-cuts</strong> across Trading, Product, Ops, Supplier issues; reduce contact reason rate from <strong>16% to 13%</strong></div><div class="metric">16% &rarr; 13%</div></div>
-        <div class="goal-row"><div class="num">02</div><div class="text">Double-down on automation: inbound automation from <strong>12% to 20%</strong></div><div class="metric">12% &rarr; 20%</div></div>
-        <div class="goal-row"><div class="num">03</div><div class="text">Maintain <strong>first-response and resolution SLAs</strong> at current levels</div><div></div></div>
-        <div class="goal-row"><div class="num">04</div><div class="text"><strong>NPS:</strong> maintain above 78 consistently</div><div class="metric">&gt;78</div></div>
+        <div class="goal-row"><div class="num">01</div><div class="text">Solve <strong>50+ paper-cuts</strong> across Trading, Product, Ops, Supplier issues; reduce contact reason rate <strong>16% to 13%</strong></div><div class="metric">16% &rarr; 13%</div></div>
+        <div class="goal-row"><div class="num">02</div><div class="text">Inbound automation from <strong>12% to 20%</strong></div><div class="metric">12% &rarr; 20%</div></div>
+        <div class="goal-row"><div class="num">03</div><div class="text">Maintain <strong>first-response and resolution SLAs</strong></div><div></div></div>
+        <div class="goal-row"><div class="num">04</div><div class="text"><strong>NPS</strong> maintained above 78 consistently</div><div class="metric">&gt;78</div></div>
       </div>
     </div>
 
@@ -428,7 +413,7 @@
 
     <div class="callout">
       <div class="callout-label">What is a rock?</div>
-      <p>A rock is a step-change you build once this quarter that permanently moves a dial. Continuous work &mdash; margin, new customers, trading the UK engine &mdash; lives on the scorecard. Rocks are the change you drive on top. Done or not done. Binary.</p>
+      <p>A rock is a step-change you build once this quarter that permanently moves a dial. Continuous work - margin, new customers, trading the UK engine - lives on the scorecard. Rocks are the change you drive on top. Done or not done. Binary.</p>
     </div>
 
     <!-- Rock 1 -->
@@ -439,7 +424,7 @@
         <span class="rock-owner">Data team</span>
       </div>
       <div class="rock-grid">
-        <div><div class="field-label">Description</div><div class="field-value">Build the unified measurement layer across NCs, ECs, and margin. Fully automated with live updates &mdash; actions flow from data to decisions without manual pulls.</div></div>
+        <div><div class="field-label">Description</div><div class="field-value">Build the unified measurement layer across NCs, ECs, and margin. Fully automated with live updates - actions flow from data to decisions without manual pulls.</div></div>
         <div><div class="field-label">Metric</div><div class="field-value">NC attribution accuracy; margin decomposition (mix, cost, price, discounts); EC retention metrics live</div></div>
         <div><div class="field-label">Definition of done</div><div class="field-value">All three layers (NC, EC, margin) live in Snowflake with automated daily refresh. No manual data pulls needed to run the weekly trade meeting.</div></div>
       </div>
@@ -454,7 +439,7 @@
       </div>
       <div class="rock-grid">
         <div><div class="field-label">Description</div><div class="field-value">Performance marketing spend funnelled efficiently into new customers. Scale through LTV bidding rollout, NC-only bidding, customer segmentation, and increased test velocity with Mai.</div></div>
-        <div><div class="field-label">Metric</div><div class="field-value">New customers (41k&rarr;50k ramp); CAC; NCPP; PM as % of turnover</div></div>
+        <div><div class="field-label">Metric</div><div class="field-value">New customers (41k to 50k ramp); CAC; NCPP; PM as % of turnover</div></div>
         <div><div class="field-label">Definition of done</div><div class="field-value">LTV bidding rolled out across campaigns. NC-only bidding tested and scaled. Mai test velocity at target cadence. NC monthly ramp on track.</div></div>
       </div>
     </div>
@@ -481,9 +466,9 @@
         <span class="rock-owner">Holly</span>
       </div>
       <div class="rock-grid">
-        <div><div class="field-label">Description</div><div class="field-value">Launch store credit to drive 1&rarr;2 reactivation. Set the foundations for a broader loyalty programme that increases repeat rate and LTV.</div></div>
-        <div><div class="field-label">Metric</div><div class="field-value">1&rarr;2 repeat rate; store credit redemption rate; reactivation rate</div></div>
-        <div><div class="field-label">Definition of done</div><div class="field-value">Store credit mechanism live and tested. Cohort data shows measurable lift in 1&rarr;2 repeat rate. Loyalty programme roadmap defined for Q4 build.</div></div>
+        <div><div class="field-label">Description</div><div class="field-value">Launch store credit to drive 1-to-2 reactivation. Set the foundations for a broader loyalty programme that increases repeat rate and LTV.</div></div>
+        <div><div class="field-label">Metric</div><div class="field-value">1-to-2 repeat rate; store credit redemption rate; reactivation rate</div></div>
+        <div><div class="field-label">Definition of done</div><div class="field-value">Store credit mechanism live and tested. Cohort data shows measurable lift in 1-to-2 repeat rate. Loyalty programme roadmap defined for Q4 build.</div></div>
       </div>
     </div>
 
@@ -510,7 +495,7 @@
       </div>
       <div class="rock-grid">
         <div><div class="field-label">Description</div><div class="field-value">Pilot automated inbound call handling in Customer Wellbeing. Reduce manual call volume while maintaining quality and NPS.</div></div>
-        <div><div class="field-label">Metric</div><div class="field-value">Inbound automation rate (12%&rarr;20%+); NPS maintained above 78; issue rate (% orders)</div></div>
+        <div><div class="field-label">Metric</div><div class="field-value">Inbound automation rate (12% to 20%+); NPS maintained above 78; issue rate (% orders)</div></div>
         <div><div class="field-label">Definition of done</div><div class="field-value">Inbound call automation pilot live and validated. Automation rate at 20%+. No degradation in NPS or resolution SLAs.</div></div>
       </div>
     </div>
@@ -535,12 +520,6 @@ function switchTab(id) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('active');
-  event.target.classList.add('active');
-}
-function switchSub(id) {
-  document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.sub-content').forEach(c => c.classList.remove('active'));
-  document.getElementById('sub-' + id).classList.add('active');
   event.target.classList.add('active');
 }
 </script>
