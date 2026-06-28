@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q3 2026 Trading Rocks</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fafaf9;
+      color: #1a1a1a;
+      padding: 2rem 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .header { margin-bottom: 2rem; }
+    .header .eyebrow {
+      font-size: 13px;
+      color: #898781;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+    .header h1 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .header .subtitle {
+      font-size: 14px;
+      color: #52514e;
+    }
+    .callout {
+      background: #f5f5f0;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .callout-label {
+      font-size: 12px;
+      color: #898781;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+    .callout p {
+      font-size: 14px;
+      color: #1a1a1a;
+    }
+    .rock-card {
+      background: #fff;
+      border: 0.5px solid rgba(11,11,11,0.10);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .rock-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .rock-number {
+      font-size: 28px;
+      font-weight: 500;
+      color: #c3c2b7;
+      min-width: 32px;
+    }
+    .rock-title {
+      font-size: 17px;
+      font-weight: 500;
+    }
+    .rock-owner {
+      font-size: 13px;
+      color: #898781;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+    .rock-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 0.5px solid rgba(11,11,11,0.06);
+    }
+    .rock-field-label {
+      font-size: 11px;
+      color: #898781;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    .rock-field-value {
+      font-size: 13px;
+      color: #52514e;
+      line-height: 1.5;
+    }
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 0.5px solid rgba(11,11,11,0.10);
+      font-size: 12px;
+      color: #898781;
+    }
+    @media (max-width: 640px) {
+      body { padding: 1.5rem 1rem; }
+      .rock-body { grid-template-columns: 1fr; }
+      .rock-header { flex-wrap: wrap; }
+      .rock-owner { margin-left: 44px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="eyebrow">Q3 2026 &middot; 90-day sprint</div>
+    <h1>Trading &mdash; functional rocks</h1>
+    <div class="subtitle">Pillar owner: Siddhansh Arora</div>
+  </div>
+
+  <div class="callout">
+    <div class="callout-label">What is a rock?</div>
+    <p>A rock is a step-change you build once this quarter that permanently moves a dial. Continuous work &mdash; margin, new customers, trading the UK engine &mdash; lives on the scorecard. Rocks are the change you drive on top. Done or not done. Binary.</p>
+  </div>
+
+  <div class="rock-card">
+    <div class="rock-header">
+      <span class="rock-number">1</span>
+      <span class="rock-title">Measurement layer</span>
+      <span class="rock-owner">Data team</span>
+    </div>
+    <div class="rock-body">
+      <div>
+        <div class="rock-field-label">Description</div>
+        <div class="rock-field-value">Build the unified measurement layer across NCs, ECs, and margin. Fully automated with live updates &mdash; actions flow from data to decisions without manual pulls.</div>
+      </div>
+      <div>
+        <div class="rock-field-label">Metric</div>
+        <div class="rock-field-value">NC attribution accuracy; margin decomposition (mix, cost, price, discounts); EC retention metrics live</div>
+      </div>
+      <div>
+        <div class="rock-field-label">Definition of done</div>
+        <div class="rock-field-value">All three layers (NC, EC, margin) live in Snowflake with automated daily refresh. No manual data pulls needed to run the weekly trade meeting.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rock-card">
+    <div class="rock-header">
+      <span class="rock-number">2</span>
+      <span class="rock-title">NC spend funnel</span>
+      <span class="rock-owner">Leo</span>
+    </div>
+    <div class="rock-body">
+      <div>
+        <div class="rock-field-label">Description</div>
+        <div class="rock-field-value">Performance marketing spend funnelled efficiently into new customers. Scale through LTV bidding rollout, NC-only bidding, customer segmentation, and increased test velocity with Mai.</div>
+      </div>
+      <div>
+        <div class="rock-field-label">Metric</div>
+        <div class="rock-field-value">New customers (41k&rarr;50k ramp); CAC; NCPP; PM as % of turnover</div>
+      </div>
+      <div>
+        <div class="rock-field-label">Definition of done</div>
+        <div class="rock-field-value">LTV bidding rolled out across campaigns. NC-only bidding tested and scaled. Mai test velocity at target cadence. NC monthly ramp on track.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rock-card">
+    <div class="rock-header">
+      <span class="rock-number">3</span>
+      <span class="rock-title">Search + site discoverability</span>
+      <span class="rock-owner">Arman</span>
+    </div>
+    <div class="rock-body">
+      <div>
+        <div class="rock-field-label">Description</div>
+        <div class="rock-field-value">Search as the engine of conversion on product. Improve site navigation, filtration, and product discovery to drive CRO.</div>
+      </div>
+      <div>
+        <div class="rock-field-label">Metric</div>
+        <div class="rock-field-value">Search conversion rate; filtration usage; product discovery metrics (TBC)</div>
+      </div>
+      <div>
+        <div class="rock-field-label">Definition of done</div>
+        <div class="rock-field-value">Search reranking live (fidelity vs commercial balance defined). Navigation filtration shipped. Measurable CRO uplift on search-driven sessions.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rock-card">
+    <div class="rock-header">
+      <span class="rock-number">4</span>
+      <span class="rock-title">Store credit + loyalty foundations</span>
+      <span class="rock-owner">Holly</span>
+    </div>
+    <div class="rock-body">
+      <div>
+        <div class="rock-field-label">Description</div>
+        <div class="rock-field-value">Launch store credit to drive 1&rarr;2 reactivation. Set the foundations for a broader loyalty programme that increases repeat rate and LTV.</div>
+      </div>
+      <div>
+        <div class="rock-field-label">Metric</div>
+        <div class="rock-field-value">1&rarr;2 repeat rate; store credit redemption rate; reactivation rate</div>
+      </div>
+      <div>
+        <div class="rock-field-label">Definition of done</div>
+        <div class="rock-field-value">Store credit mechanism live and tested. Cohort data shows measurable lift in 1&rarr;2 repeat rate. Loyalty programme roadmap defined for Q4 build.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rock-card">
+    <div class="rock-header">
+      <span class="rock-number">5</span>
+      <span class="rock-title">Pricing automation</span>
+      <span class="rock-owner">Anton</span>
+    </div>
+    <div class="rock-body">
+      <div>
+        <div class="rock-field-label">Description</div>
+        <div class="rock-field-value">Move from manual pricing decisions to an automated engine. Price scraper at full coverage, integrated into Snowflake, with A/B testing framework driving continuous margin gains. EN-UK/.com price convergence within 2-2.5pp.</div>
+      </div>
+      <div>
+        <div class="rock-field-label">Metric</div>
+        <div class="rock-field-value">Gross margin %; pricing gains %; en-uk/.com gap (pp); pricing tests per month</div>
+      </div>
+      <div>
+        <div class="rock-field-label">Definition of done</div>
+        <div class="rock-field-value">Scraper at full SKU coverage in Snowflake. EN-UK/.com gap within 2-2.5pp. 25+ pricing tests/month running with automated margin readouts.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rock-card">
+    <div class="rock-header">
+      <span class="rock-number">6</span>
+      <span class="rock-title">CW inbound automation</span>
+      <span class="rock-owner">Firas</span>
+    </div>
+    <div class="rock-body">
+      <div>
+        <div class="rock-field-label">Description</div>
+        <div class="rock-field-value">Pilot automated inbound call handling in Customer Wellbeing. Reduce manual call volume while maintaining quality and NPS.</div>
+      </div>
+      <div>
+        <div class="rock-field-label">Metric</div>
+        <div class="rock-field-value">Inbound automation rate (12%&rarr;20%+); NPS maintained above 78; issue rate (% orders)</div>
+      </div>
+      <div>
+        <div class="rock-field-label">Definition of done</div>
+        <div class="rock-field-value">Inbound call automation pilot live and validated. Automation rate at 20%+. No degradation in NPS or resolution SLAs.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Healf Trading &middot; Q3 2026 &middot; Last updated 28 June 2026
+  </div>
+</body>
+</html>
